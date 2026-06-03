@@ -1,0 +1,2 @@
+model,accuracy,glioma_recall,meningioma_recall,notumor_recall,pituitary_recall,f1_macro
+ResNet50_baseline,85.75,69.0,80.5,98.3,94.8,0.86
