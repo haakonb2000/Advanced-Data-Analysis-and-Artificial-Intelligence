@@ -1,2 +1,7 @@
 model,accuracy,glioma_recall,meningioma_recall,notumor_recall,pituitary_recall,f1_macro
 ResNet50_baseline,85.75,69.0,80.5,98.3,94.8,0.86
+TwoStage_ResNet50,85.50,75.2,74.5,97.2,95.0,0.85
+EfficientNet_B0,84.50,68.0,78.0,99.0,93.0,0.84
+Ensemble_Sequential,87.75,71.8,85.5,97.2,96.5,0.88
+Sensor_Fusion,86.69,74.0,80.0,97.2,95.0,0.87
+ResNet50_finetuned,94.19,79.0,99.0,99.0,100.0,0.94
