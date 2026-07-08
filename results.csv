@@ -7,3 +7,5 @@ Sensor_Fusion,86.69,74.0,80.0,97.2,95.0,0.87
 ResNet50_finetuned,94.19,79.0,99.0,99.0,100.0,0.94
 EfficientNet_finetuned,88.75,69.0,89.0,99.0,97.0,0.88
 Final_model_finetuned,92.38,78.8,93.8,97.2,99.8,0.92
+Fully_finetuned_sequential,94.44,79.5,98.8,100.0,99.5,0.94
+Final_model_threshold_0.05,94.88,81.0,99.0,100.0,100.0,0.95
