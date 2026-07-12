@@ -3,8 +3,7 @@
 A deep learning project for classifying brain MRI images into four categories: 
 **glioma**, **meningioma**, **no tumor**, and **pituitary tumor**. This project 
 was completed individually for the course *Advanced Data Analysis & Artificial 
-Intelligence* (note: this assignment was originally designed as group work; it 
-was completed solo with the lecturer's approval, which shaped the project's scope).
+Intelligence* 
 
 ## Table of Contents
 1. [Dataset](#dataset)
@@ -57,7 +56,7 @@ This established a baseline of **85.75%** test accuracy.
 
 Grad-CAM analysis (Selvaraju et al., 2017) revealed that the model partially 
 relied on shortcut features (e.g., skull edges, background) rather than tumor 
-tissue itself for the glioma and meningioma classes — which aligned with their 
+tissue itself for the glioma and meningioma classes, which aligned with their 
 lower recall scores.
 
 ### 2. Two-Stage Classification
@@ -165,8 +164,8 @@ images per class).
 **Why did threshold optimization help?**
 Stage 1 (tumor detection) was very confident when classifying notumor images, 
 but occasionally uncertain on actual tumor images. By lowering the threshold 
-from 0.5 to 0.05 — meaning an image is sent to the tumor classifier unless 
-Stage 1 is at least 95% confident it is notumor — we significantly reduced 
+from 0.5 to 0.05, meaning an image is sent to the tumor classifier unless 
+Stage 1 is at least 95% confident it is notumor, we significantly reduced 
 missed tumors (34 → 13) without any loss in notumor accuracy.
 
 **Limitations:**
@@ -174,19 +173,14 @@ missed tumors (34 → 13) without any loss in notumor accuracy.
   is untested.
 - Grad-CAM was only evaluated qualitatively on a small sample of images per 
   class, not systematically across the full test set.
-- The project was completed individually rather than as originally planned 
-  group work, which constrained the scope of experiments.
+
 
 ---
 
 ## Future Work
 
-Given more time or a full team, several directions could be explored further:
+Given more time, several directions could be explored further:
 
-- **Fine-tuned Stage 1 + fine-tuned Stage 2:** Testing the combination of 
-  fully fine-tuned Stage 1 with fine-tuned Stage 2 (specialized on 3 tumor 
-  classes) instead of the 4-class ResNet50 classifier was not completed and 
-  remains an interesting direction.
 - **Weighted loss functions:** Penalize misclassification of glioma more 
   heavily during training (e.g. `nn.CrossEntropyLoss(weight=...)`) to directly 
   target its persistently low recall.
@@ -213,28 +207,28 @@ Given more time or a full team, several directions could be explored further:
 
 Starting from an 85.75% baseline, this project systematically explored 
 two-stage classification, an alternative architecture (EfficientNet), multiple 
-ensemble strategies, and fine-tuning. The final model — a fully fine-tuned 
-sequential pipeline with an optimized decision threshold — achieved **94.88% 
+ensemble strategies, and fine-tuning. The final model, a fully fine-tuned 
+sequential pipeline with an optimized decision threshold, achieved **94.88% 
 test accuracy**, 81% glioma recall, 100% notumor recall, and only 13/1200 
 tumors missed as notumor.
 
-Grad-CAM analysis was used throughout to validate *why* the model performed 
-as it did, not just *how well*, revealing that the baseline model relied partly 
+Grad-CAM analysis was used throughout to validate why the model performed 
+as it did, not just how well, revealing that the baseline model relied partly 
 on non-tumor shortcut features — a risk that fine-tuning partially, but not 
 fully, resolved. The most clinically critical finding is that by optimizing 
 Stage 1's decision threshold, the pipeline missed only 1.1% of all tumor 
-images — an important property for any medical screening system.
+images, an important property for any medical screening system. Even though it got better the model is therefore not good enough for medical use. Even if it was it would need more testing and validation to be certified for medical use.
 
 ---
 
 ## References
 
 - He, K., Zhang, X., Ren, S., & Sun, J. (2015). *Deep Residual Learning for 
-  Image Recognition*. arXiv:1512.03385
+  Image Recognition*. arXiv:1512.03385. https://arxiv.org/abs/1512.03385
 - Tan, M., & Le, Q. (2019). *EfficientNet: Rethinking Model Scaling for 
-  Convolutional Neural Networks*. arXiv:1905.11946
+  Convolutional Neural Networks*. arXiv:1905.11946. https://arxiv.org/abs/1905.11946
 - Selvaraju, R. R., Cogswell, M., Das, A., Vedantam, R., Parikh, D., & Batra, 
   D. (2017). *Grad-CAM: Visual Explanations from Deep Networks via 
-  Gradient-based Localization*. arXiv:1610.02391
+  Gradient-based Localization*. arXiv:1610.02391. https://arxiv.org/abs/1610.02391
 - Nickparvar, M. (2021). *Brain Tumor MRI Dataset*. Kaggle. 
   https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
