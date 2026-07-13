@@ -119,7 +119,7 @@ misclassified as no tumor.
 | Sensor fusion (fine-tuned) | 92.38% | 78.8% | 93.8% | 97.2% | 99.8% | 0.92 |
 | Sequential + fine-tuned (original Stage 1) | 92.75% | 80.2% | 93.8% | 97.2% | 99.8% | 0.93 |
 | Fully fine-tuned sequential (threshold=0.5) | 94.44% | 79.5% | 98.8% | 100.0% | 99.5% | 0.94 |
-| **Fully fine-tuned sequential (threshold=0.05)** | **94.88%** | **81.0%** | **99.0%** | **100.0%** | **99.5%** | **0.95** |
+| **Fully fine-tuned sequential (threshold=0.05 and Fine Tuned ResNet50 instead of fine tuned stage 2)** | **94.88%** | **81.0%** | **99.0%** | **100.0%** | **99.5%** | **0.95** |
 
 Full results are tracked in [`results.csv`](results.csv).
 
